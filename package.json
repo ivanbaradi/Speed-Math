@@ -1,0 +1,19 @@
+{
+  "name": "speed-math",
+  "version": "1.0.0",
+  "description": "Speed Math is a web-based game where users answer math questions within a limited time. Math operators consist of addition, subtraction, and multiplication. A score is displayed on the screen to see how many answers you got right or wrong.",
+  "main": "library.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NinjaGodIvan/Speed-Math.git"
+  },
+  "author": "Ivan Baradi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NinjaGodIvan/Speed-Math/issues"
+  },
+  "homepage": "https://github.com/NinjaGodIvan/Speed-Math#readme"
+}
