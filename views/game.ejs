@@ -1,0 +1,45 @@
+<html>
+
+    <%- include('../templates/head.ejs') %>
+
+    <body>
+        <h1 id='title'>Speed Math</h1>
+
+        <div id='grid-container'>
+            <div id='left-dashboard'> <!-- Math Game -->
+                <div id='timer'>Time: 60s</div>
+                <div id='score'>Score: 0</div>
+                <div id='error-message'></div>
+                <div id='equation'>Click the button below to start</div><br>
+                <input id='user-answer' size='5' disabled>
+                <input id="button" type="button" value='Start' onclick="buttonClicked()">
+            </div>
+            <div id='right-dashboard'> <!-- Scoreboards-->
+                <div id='scoreboard'><strong>Scoreboard</strong></div>
+                <!-- Sample Data-->
+                <ol>
+                    <li>No name</li>
+                    <li>No Name</li>
+                    <li>No name</li>
+                    <li>No name</li>
+                    <li>No name</li>
+                    <li>No name</li>
+                    <li>No name</li>
+                    <li>No name</li>
+                    <li>No name</li>
+                    <li>No name</li>
+                </ol>
+
+                <!--
+
+                    Add code that stores the user's name and score
+
+                -->
+            </div>
+        </div>
+    </body>
+    <!-- Game Handler Script -->
+    <%- include('../templates/game-handler.ejs') %>
+    <!-- Footer Template-->
+    <%- include('../templates/footer.ejs') %>
+</html>

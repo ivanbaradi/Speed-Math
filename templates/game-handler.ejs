@@ -1,0 +1,205 @@
+<script>
+
+    //Selected operator
+    var operator
+    //Two math operands
+    var operand, operand2
+    //Correct answer from the system
+    var correct_answer
+    //User's answer
+    var user_answer = document.getElementById('user-answer')
+    //Button from the game UI
+    var button = document.getElementById('button')
+    //Timer
+    var timer = 60
+    //Timer from the DOM
+    var timerDOM = document.getElementById('timer')
+    //User's score 
+    var score = 0
+    //User's score from the DOM
+    var scoreDOM = document.getElementById('score')
+    //Math equation
+    var equation = document.getElementById('equation')
+    //Interval ID of the timer
+    var intervalID
+    //Error message from the DOm
+    var errorMessage = document.getElementById('error-message')
+
+    //Fires when the user presses 'Enter' on the text field
+    user_answer.addEventListener('keyup', function(event){
+        if(event.keyCode === 13){
+            event.preventDefault();
+            button.click();
+        }
+    })
+
+    /*  Checks for the user's valid input
+
+        Parameter:
+        user answer => user's answer (trimmed)
+
+        Return(s):
+        true => the answer is valid
+        false => the answer is invalid
+    */
+    function isValidInput(user_answer){
+
+        //User did not enter the answer
+        if(user_answer.length == 0){ 
+            errorMessage.innerHTML = 'Please enter your answer'
+            return false
+        //User did not enter a number
+        } else if(!/^-?[0-9]+(?:\.[0-9]+)?$/.test(user_answer)){
+            errorMessage.innerHTML = 'Your answer must be a number'
+            return false
+        }
+
+        errorMessage.innerHTML = ''
+        return true;
+    }
+
+    /*  Checks if the answer is correct
+
+        Parameter:
+        user answer => user's answer (trimmed)
+
+        Return(s):
+        true => the answer is correct
+        false => the answer is incorrect
+    */
+    function isCorrectAnswer(user_answer){
+
+        if(user_answer == correct_answer){
+            console.log('The answer is correct')
+            return true
+        }
+
+        return false
+    }
+
+    /*  Sets the timer
+
+        Parameter(s):
+        time => new time
+    */
+    function setTime(time){
+        timer = time
+        timerDOM.innerHTML = `Time: ${timer}s`
+        // console.log(`Time: ${timer}`)
+    }
+
+    //Sets two operands
+    function setOperands(){
+        operand = Math.floor(Math.random() * 11)
+        operand2 = Math.floor(Math.random() * 11)
+    }
+
+    //Randomly selects a math operator
+    function setOperator(){
+        let operators = ['+', '-', '*']
+        operator =  operators[Math.floor(Math.random() * operators.length)]
+    }
+
+
+    /* Sets the user's score
+
+        Parameter(s):
+        score => new score
+    */
+    function setScore(new_score){
+        score = new_score
+        scoreDOM.innerHTML = `Score: ${score}`
+        // console.log(`Score: ${score}`)
+    }
+
+
+    //Sets the correct answer
+    function setCorrectAnswer(){
+        if(operator == '+')
+            correct_answer = operand + operand2
+        else if(operator == '-')
+            correct_answer = operand - operand2
+        else
+            correct_answer = operand * operand2  
+    }
+
+    
+    //Creates a math equation
+    function createMathEquation(){
+
+        //Sets operands and operator
+        setOperands();
+        setOperator();
+
+        //Displays equation on the left UI
+        equation.innerHTML = `${operand} ${operator} ${operand2}`
+    }
+
+
+    //Fires whenever a user clicks the button to start the game or answer the math problem
+    function buttonClicked(){
+
+        //Starts the math game
+        function startGame(){
+            button['value'] = 'Answer'
+            user_answer.removeAttribute('disabled')
+            setTime(60)
+            setScore(0)
+
+            //Handles the timer (Uncomment to disable time)
+            intervalID = setInterval(function(){
+                
+                if(timer != 0){
+                    setTime(timer-1)
+                    console.log('Time decreased')
+                }else{
+                    clearInterval(intervalID)
+                    button['value'] = 'Start'
+                    user_answer.setAttribute('disabled', '')
+                    
+                    /* 
+                        Add more code soon
+                    */
+
+                }
+
+            },1000)
+        }
+
+        /* Answers the math problem
+
+            Parameter(s):
+            true => user successfully answers the math problem and moves to the next one
+            false => user must answer the problem again; 
+        */
+        function answerMathProblem(){
+
+            let final_answer = user_answer['value'].trim()
+
+            //Invalid input
+            if(!isValidInput(final_answer)){
+                return false
+            }
+
+            if(isCorrectAnswer(final_answer)){
+                setScore(score + 100)
+            } else {
+                setScore(score - 50)
+            }
+
+            return true
+        }
+
+        if(button['value'] == 'Start'){
+            startGame()
+        } else {
+            if(!answerMathProblem()){
+                return 
+            }
+        }
+
+        createMathEquation()
+        setCorrectAnswer()
+        user_answer['value'] = ''
+    }           
+</script>
