@@ -1,19 +1,25 @@
 body{
-    /* background-color: greenyellow; */
+    background-color: greenyellow;
 }
 
 /* HTML Grid */
 #grid-container{
     display: grid;
-    grid-template-columns: 450px 300px;
+    grid-template-columns: 450px 400px;
     justify-content: center;
-    grid-column-gap: 45px;
+    grid-column-gap: 130px;
 }
 
 /* HTML Grid containing the game (left) & scoreboard (right) */
 #grid-container > div{
-    border: black solid 2px; /* Used for outlining */
     padding: 15px 70px 0px 60px; 
+}
+
+#left-dashboard{
+    border: black solid 2px; 
+    height: 150px;
+    position: relative;
+    top: 90;
 }
 
 #scoreboard{
@@ -54,8 +60,25 @@ div{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-li{
-    padding: 5px;
+/* Scoreboard table */
+table{
+    width: 140%;
+    position: relative;
+    top: 10;
+    right: 50;
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 3px 0px 3px 0px;
+}
+
+
+/* Scoreboard Entry */
+td{
+    text-align: center;
+    /* background-color: red; */
 }
 
 /* Footer */
