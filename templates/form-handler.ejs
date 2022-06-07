@@ -1,3 +1,24 @@
 <script>
-    
+
+    //Gets user's name input
+    var user_input_name = document.getElementById('name-input')
+
+    //Verifies user's inputs of the form
+    const verify_inputs = () => {
+
+      //Removes trailing and leading spaces
+      user_input_name['value'] = user_input_name['value'].trim()
+
+      //User must have characters in the user input
+      if(user_input_name['value'].length == 0){
+        alert('Please enter your name')
+        return false
+      }
+
+      console.log(user_input_name['value'])
+      console.log('User input verified!')
+
+      return true;
+    }
+
 </script>

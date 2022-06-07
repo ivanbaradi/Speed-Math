@@ -1,14 +1,19 @@
-//Redirects user back to the math game
-const redirectToMathGame = (req, res) => {
-    res.redirect('game')
-}
-
 //Directs user to the math game
-const directToMathGame = (req, res) => {
+const homePage = (req, res) => {
     res.render('game')
 }
 
+//Directs user to add entry form if they beat at least 10th place user
+const addEntryPage = (req, res) => {
+    res.render('add-entry')
+}
+
+const errorPage = (req, res) => {
+    res.render('error')
+}
+
 module.exports = {
-    directToMathGame,
-    redirectToMathGame
+    homePage,
+    addEntryPage,
+    errorPage
 }

@@ -1,0 +1,17 @@
+<html>
+
+    <%- include('../templates/head.ejs') %>
+
+    <div class="congrats-message" style="top: 150; font-size: 30;">Congratulations!</div>
+    <div class="congrats-message" style="top: 160;">You have reached beat the 10th placed user!</div>
+    <form id='add-entry-form'>
+        <label id='name-label'>Name: </label><input id='name-input' name='name'/>
+        <button onclick="return verify_inputs()" id="form-submit-button">Submit</button>
+    </form>
+
+    <!-- Game Handler Script -->
+    <%- include('../templates/form-handler.ejs') %>
+    <!-- Footer Template-->
+    <%- include('../templates/footer.ejs') %>
+
+</html>

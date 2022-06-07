@@ -12,16 +12,19 @@ body{
 
 /* HTML Grid containing the game (left) & scoreboard (right) */
 #grid-container > div{
-    padding: 15px 70px 0px 60px; 
+    padding: 15px 70px 0px 60px;
 }
 
+/* Math Game */
 #left-dashboard{
-    border: black solid 2px; 
+    background-color: lightblue;
+    border: 2px solid black;
     height: 150px;
     position: relative;
     top: 90;
 }
 
+/* Scoreboard */
 #scoreboard{
     font-size: 25px;
 }
@@ -36,9 +39,9 @@ body{
 
 #error-message{
     color: red;
-    font-weight: bold;
-    padding: 10px 0px 5px 0px; 
     font-size: small;
+    font-weight: bold;
+    padding: 10px 0px 5px 0px;
 }
 
 h1, div{
@@ -50,14 +53,14 @@ button:hover{
 }
 
 /* Title of the game */
-h1{
+#game-title{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 3em;
 }
 
-div{
+div, label{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: medium;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 /* Scoreboard table */
@@ -90,4 +93,47 @@ td{
     left: 0;
     bottom: 5;
     width: 100%;
+}
+
+/*********** ADD ENTRY FORM ***********/
+
+#add-entry-form{
+    margin: 0 auto;
+    width: 250px;
+    /* border: 2px solid black; Debugger */
+    position: relative;
+    top: 200;
+}
+
+#form-submit-button{
+
+}
+
+.congrats-message, #form-instruction{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    /* border: 2px solid black; Debugger */
+    position: relative;
+}
+
+.congrats-message{
+    font-weight: bold;
+}
+
+#form-instruction{
+    top: 190;
+}
+
+label{
+  font-size: 15;
+}
+
+/*********** ERROR PAGE ***********/
+
+#error-icon{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  padding-top: 75px;
 }

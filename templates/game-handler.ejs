@@ -14,7 +14,7 @@
     var timer = 60
     //Timer from the DOM
     var timerDOM = document.getElementById('timer')
-    //User's score 
+    //User's score
     var score = 0
     //User's score from the DOM
     var scoreDOM = document.getElementById('score')
@@ -45,7 +45,7 @@
     function isValidInput(user_answer){
 
         //User did not enter the answer
-        if(user_answer.length == 0){ 
+        if(user_answer.length == 0){
             errorMessage.innerHTML = 'Please enter your answer'
             return false
         //User did not enter a number
@@ -120,10 +120,10 @@
         else if(operator == '-')
             correct_answer = operand - operand2
         else
-            correct_answer = operand * operand2  
+            correct_answer = operand * operand2
     }
 
-    
+
     //Creates a math equation
     function createMathEquation(){
 
@@ -148,7 +148,7 @@
 
             //Handles the timer (Uncomment to disable time)
             intervalID = setInterval(function(){
-                
+
                 if(timer != 0){
                     setTime(timer-1)
                     console.log('Time decreased')
@@ -156,8 +156,9 @@
                     clearInterval(intervalID)
                     button['value'] = 'Start'
                     user_answer.setAttribute('disabled', '')
-                    
-                    /* 
+                    equation.innerHTML = 'Click the button below to start'
+
+                    /*
                         Add more code soon
                     */
 
@@ -170,7 +171,7 @@
 
             Parameter(s):
             true => user successfully answers the math problem and moves to the next one
-            false => user must answer the problem again; 
+            false => user must answer the problem again;
         */
         function answerMathProblem(){
 
@@ -194,12 +195,12 @@
             startGame()
         } else {
             if(!answerMathProblem()){
-                return 
+                return
             }
         }
 
         createMathEquation()
         setCorrectAnswer()
         user_answer['value'] = ''
-    }           
+    }
 </script>
